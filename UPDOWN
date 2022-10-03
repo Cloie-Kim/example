@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main() {
+	int number;
+	srand(time(0));
+	number = rand() % 100 + 1;
+
+	printf("숫자를 맞춰보세요. 범위는 1부터 100까지입니다. 기회는 10번 주어집니다.\n");
+
+	int answer;
+	int chance = 10;
+
+	while (chance > 0) {
+		scanf_s("%d", &answer);
+		if (answer <= 100 && answer >= 0) {
+			if (answer > number) {
+				printf("Down\n");
+			}
+			else if (answer < number) {
+				printf("Up\n");
+			}
+			else if (answer = number) {
+				printf("정답입니다.\n");
+				break;
+			}
+			chance--;
+
+			if (chance == 0) {
+				printf("기회를 다 사용했습니다.");
+				break;
+			}
+		}
+		else{
+		printf("잘못된 값입니다.");
+		break;
+		}
+			
+	}
+}
